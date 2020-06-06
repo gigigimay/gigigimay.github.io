@@ -10,14 +10,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #eee;
+  font-size: 40px;
 `
 
 const Title = styled.div`
-  font-size: 80px;
-  color: #eee;
-  font-weight: bold;
-  line-height: 1;
-
   transition: .5s ease-in-out color;
   :hover {
     color: #71d9ce;
@@ -26,7 +23,11 @@ const Title = styled.div`
 
 const App = () => (
   <Container>
-    <Title>gigigimay</Title>
+    <Title>
+      <span>Hello, I am</span>
+      <h1>gigigimay.</h1>
+    </Title>
+
   </Container>
 )
 
