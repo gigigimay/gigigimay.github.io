@@ -7,14 +7,6 @@ export const headData = {
   description: '', // e.g: Welcome to my website
 }
 
-// HERO DATA
-export const heroData = {
-  title: '',
-  name: '',
-  subtitle: '',
-  cta: '',
-}
-
 // ABOUT DATA
 export const aboutData = {
   img: 'profile.jpg',
