@@ -30,7 +30,7 @@
         ],
         "arrow-parens": [
             "error",
-            "as-needed"
+            "always"
         ]
     }
 }
