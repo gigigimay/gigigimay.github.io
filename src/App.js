@@ -1,5 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react'
 import styled from 'styled-components'
+import TilesScreen from './components/TilesScreen'
 
 const Container = styled.div`
   position: fixed;
@@ -12,6 +14,7 @@ const Container = styled.div`
   justify-content: center;
   color: #eee;
   font-size: 40px;
+  pointer-events: none;
 `
 
 const Title = styled.div`
@@ -22,13 +25,15 @@ const Title = styled.div`
 `
 
 const App = () => (
-  <Container>
-    <Title>
-      <span>Hello, I am</span>
-      <h1>gigigimay.</h1>
-    </Title>
-
-  </Container>
+  <>
+    <Container>
+      <Title>
+        <span>Hello, I am</span>
+        <h1>gigigimay.</h1>
+      </Title>
+    </Container>
+    <TilesScreen />
+  </>
 )
 
 export default App
