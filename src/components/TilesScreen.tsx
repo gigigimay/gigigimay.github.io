@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
 
-const TILE_SIZE = 60
+const TILE_SIZE = 40
 
 const TileContainer = styled.div`
   .mouse-icon,
