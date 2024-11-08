@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
 
-const TILE_SIZE = 40
+const TILE_SIZE = 60
 
 const TileContainer = styled.div`
   .mouse-icon,
@@ -22,19 +22,19 @@ const TileContainer = styled.div`
   .mouse-icon {
     transition-duration: 1s;
     transition-timing-function: ease-in;
-    transition-delay: 4s;
+    transition-delay: 3.5s;
   }
 
   .circle {
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
-    transition-delay: 3.5s;
+    transition-delay: 3s;
 
-    animation-name: spin;
+    animation-name: circle-spin;
     animation-duration: 50000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    @keyframes spin {
+    @keyframes circle-spin {
       from {
         transform: translate(-50%, -50%) rotate(0deg);
       }
@@ -49,16 +49,16 @@ const TileContainer = styled.div`
     .mouse-icon {
       opacity: 0;
       transform: translate(-50%, -50%) scale(2);
-      transition-duration: 0.5s;
+      transition-duration: 1s;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-      transition-delay: 0.2s;
+      transition-delay: 0.4s;
     }
     .circle {
       opacity: 0;
       width: 19rem;
       height: 19rem;
-      transition-duration: 0.2s;
-      transition-delay: 0.1s;
+      transition-duration: 0.5s;
+      transition-delay: 0s;
     }
   }
 `
@@ -197,7 +197,7 @@ const TilesScreen = ({ onDone }: { onDone?: () => unknown }) => {
       <div
         className={classNames(
           'circle',
-          'w-80 h-80 rounded-full border-4 border-dotted border-white'
+          'w-80 h-80 rounded-full border-4 border-dotted border-white border-opacity-50'
         )}
       >
         <div className="inner" />
