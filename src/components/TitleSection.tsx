@@ -1,27 +1,45 @@
 import classNames from 'classnames'
 import { Stars } from 'components/Stars'
-
+import { useState } from 'react'
 import { Parallax } from 'react-scroll-parallax'
+import StarIcon from 'assets/icons/icon-star.svg?react'
 
 const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
+  const [starsRand, setStarsRand] = useState({})
+
   return (
-    <div className="screen-section relative bg-gray-900 text-gray-100 overflow-hidden">
-      <Stars />
-      <div className="transition-colors duration-500 p-8 z-10">
-        <span className="text-3xl sm:text-5xl">Hello, I am</span>
-        <h1 className="text-5xl sm:text-8xl text-[#71d9ce] transition-colors font-bold">
-          Maytiya
-          <br />
-          Monburinon.
-        </h1>
-        <p
+    <div
+      className={classNames(
+        'screen-section relative text-gray-100 overflow-hidden',
+        'bg-gradient-to-b from-gray-900 to-blue-950 to-90%'
+      )}
+    >
+      <Stars rand={starsRand} />
+      <div className="p-8 z-10 text-center">
+        <p className="text-xl sm:text-3xl font-light">Hello, I am</p>
+        <h1
           className={classNames(
-            'uppercase font-light text-xl sm:text-3xl tracking-widest',
-            'mt-2 opacity-60'
+            'text-5xl sm:text-8xl transition-all font-extrabold tracking-wide',
+            'drop-shadow-[0_0_8px_#71d9ce88]',
+            'mb-8 mt-4'
           )}
         >
+          Maytiya
+        </h1>
+        <p className={classNames('text-xl sm:text-2xl font-light')}>
           A full-stack software engineer
         </p>
+        <div className="mt-6">
+          <button
+            onClick={() => setStarsRand({})}
+            className={classNames(
+              'text-white animate-pulse',
+              'transition-all hover:scale-110 active:rotate-12 hover:animate-none'
+            )}
+          >
+            <StarIcon className="w-8" />
+          </button>
+        </div>
       </div>
       <Parallax
         speed={-5}

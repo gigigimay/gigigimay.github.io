@@ -4,10 +4,13 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
+import MouseIcon from 'assets/icons/icon-pointer.svg?react'
 
 const TILE_SIZE = 60
 
 const TileContainer = styled.div`
+  cursor: pointer;
+
   .mouse-icon,
   .circle,
   .circle .inner {
@@ -61,16 +64,20 @@ const TileContainer = styled.div`
       transition-delay: 0s;
     }
   }
+
+  &.clicked {
+    cursor: initial;
+  }
 `
 
 const Tile = styled.div`
   width: ${TILE_SIZE}px;
   min-width: ${TILE_SIZE}px;
   height: ${TILE_SIZE}px;
-  background-color: black;
+  background-color: #222222fa;
   cursor: pointer;
 
-  transition-property: opacity;
+  transition-property: opacity, background-color;
   transition-delay: 1s;
   transition-duration: 3s;
   transition-timing-function: cubic-bezier(0.1, 0.2, 0.5, 1);
@@ -78,6 +85,7 @@ const Tile = styled.div`
   &:hover,
   &.hide {
     opacity: 0;
+    background-color: #cccccc99;
 
     transition-delay: 0s;
     transition-duration: 0.5s;
@@ -97,7 +105,7 @@ const Tile = styled.div`
 
 const createArray = (length: number) => Array.from({ length }, (_, k) => k)
 
-const TilesScreen = ({ onDone }: { onDone?: () => unknown }) => {
+const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   const [rows, setRows] = useState<number[]>()
   const [cols, setCols] = useState<number[]>()
   const [hiddenKeys, setHiddenKeys] = useState<Record<string, boolean>>({})
@@ -130,7 +138,7 @@ const TilesScreen = ({ onDone }: { onDone?: () => unknown }) => {
             cols.map(async (col) => {
               const key = `${row}.${col}`
               const dx = Math.abs(clickedX - col)
-              const dy = Math.abs(clickedY - row)
+              const dy = Math.abs(clickedY - row) / 2
               const distance = Math.round(Math.sqrt(dx ** 2 + dy ** 2))
               const rand = randomInt(5) * 20
               await delay(distance * 50 + rand)
@@ -173,31 +181,12 @@ const TilesScreen = ({ onDone }: { onDone?: () => unknown }) => {
     >
       {tiles}
       <div className="mouse-icon">
-        <svg
-          fill="#ffffff"
-          height="64px"
-          width="64px"
-          version="1.1"
-          id="Capa_1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 203.079 203.079"
-          stroke="#ffffff"
-        >
-          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path d="M192.231,104.082V102c0-12.407-10.094-22.5-22.5-22.5c-2.802,0-5.484,0.519-7.961,1.459 C159.665,70.722,150.583,63,139.731,63c-2.947,0-5.76,0.575-8.341,1.61C128.667,55.162,119.624,48,109.231,48 c-2.798,0-5.496,0.541-8,1.516V22.5c0-12.407-10.094-22.5-22.5-22.5s-22.5,10.093-22.5,22.5v66.259 c-3.938-5.029-8.673-9.412-14.169-11.671c-6.133-2.52-12.587-2.219-18.667,0.872c-11.182,5.686-15.792,19.389-10.277,30.548 l27.95,56.563c0.79,1.552,19.731,38.008,54.023,38.008h40c31.54,0,57.199-25.794,57.199-57.506l-0.031-41.491H192.231z M135.092,188.079h-40c-24.702,0-40.091-28.738-40.646-29.796l-27.88-56.42c-1.924-3.893-0.33-8.519,3.629-10.532 c2.182-1.11,4.081-1.223,6.158-0.372c8.281,3.395,16.41,19.756,19.586,29.265l2.41,7.259l12.883-4.559V22.5 c0-4.136,3.364-7.5,7.5-7.5s7.5,3.364,7.5,7.5V109h0.136h14.864h0.136V71c0-4.187,3.748-8,7.864-8c4.262,0,8,3.505,8,7.5v15v26h15 v-26c0-4.136,3.364-7.5,7.5-7.5s7.5,3.364,7.5,7.5V102v16.5h15V102c0-4.136,3.364-7.5,7.5-7.5s7.5,3.364,7.5,7.5v10.727h0.035 l0.025,32.852C177.291,169.014,158.36,188.079,135.092,188.079z"></path>{' '}
-          </g>
-        </svg>
+        <MouseIcon className="text-white w-10" />
       </div>
       <div
         className={classNames(
           'circle',
-          'w-80 h-80 rounded-full border-4 border-dotted border-white border-opacity-50'
+          'w-80 h-80 rounded-full border-4 border-dotted border-white border-opacity-20'
         )}
       >
         <div className="inner" />
@@ -206,4 +195,4 @@ const TilesScreen = ({ onDone }: { onDone?: () => unknown }) => {
   )
 }
 
-export default TilesScreen
+export default CoverScreen
