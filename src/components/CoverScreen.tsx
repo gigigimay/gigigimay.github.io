@@ -1,10 +1,10 @@
 import classNames from 'classnames'
-import useScreenSize from 'hooks/useScreenSize'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
 import MouseIcon from 'assets/icons/icon-pointer.svg?react'
+import { useScreenTiles } from 'hooks/useScreenTiles'
 
 const TILE_SIZE = 60
 
@@ -106,18 +106,16 @@ const Tile = styled.div`
 const createArray = (length: number) => Array.from({ length }, (_, k) => k)
 
 const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
+  const { nX, nY } = useScreenTiles(TILE_SIZE)
   const [rows, setRows] = useState<number[]>()
   const [cols, setCols] = useState<number[]>()
   const [hiddenKeys, setHiddenKeys] = useState<Record<string, boolean>>({})
   const [isClicked, setIsClicked] = useState(false)
-  const { width: w, height: h } = useScreenSize()
 
   useEffect(() => {
-    const nnX = Math.ceil(w / TILE_SIZE)
-    const nnY = Math.ceil(h / TILE_SIZE)
-    setRows(createArray(nnY))
-    setCols(createArray(nnX))
-  }, [h, w])
+    setRows(createArray(nY))
+    setCols(createArray(nX))
+  }, [nX, nY])
 
   const hideTile = useCallback(
     (key: string) => setHiddenKeys((v) => ({ ...v, [key]: true })),

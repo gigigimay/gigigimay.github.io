@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import useScreenSize from 'hooks/useScreenSize'
+import { useScreenTiles } from 'hooks/useScreenTiles'
 import { Dictionary, groupBy } from 'lodash'
 import { useEffect, useState } from 'react'
 import { Parallax } from 'react-scroll-parallax'
@@ -30,26 +30,21 @@ const randomStar = (row: number, col: number): Star => {
 }
 
 export const Stars = ({ rand }: { rand?: unknown }) => {
-  const { width: w, height: h } = useScreenSize()
-
+  const { nY, nX } = useScreenTiles(TILE_SIZE, 4)
   const [starGroups, setStarGroups] = useState<Dictionary<Star[]>>()
 
   useEffect(() => {
-    const nnX = Math.ceil(w / TILE_SIZE)
-    const nnY = Math.ceil(h / TILE_SIZE) + 4
-
     // random star positions and size
     const stars: Star[] = []
-    for (let row = 0; row < nnY; row++) {
-      for (let col = 0; col < nnX; col++) {
+    for (let row = 0; row < nY; row++) {
+      for (let col = 0; col < nX; col++) {
         if (!randomInt(2)) stars.push(randomStar(row, col))
         if (!randomInt(1)) stars.push(randomStar(row, col))
       }
     }
     const starGroups = groupBy(stars, (v) => v.width)
-    console.log('🚀 ~ useEffect ~ starGroups:', starGroups)
     setStarGroups(starGroups)
-  }, [h, w, rand])
+  }, [nX, nY, rand])
 
   if (!starGroups) return null
 
