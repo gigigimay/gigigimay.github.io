@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { Parallax } from 'react-scroll-parallax'
 import { randomInt } from 'utils/number'
 
-const TILE_SIZE = 50
+const TILE_SIZE = 100
 
 const colors = ['#abcdef', '#ff6677', '#ffff77', '#ffffff']
 
@@ -38,7 +38,11 @@ export const Stars = ({ rand }: { rand?: unknown }) => {
     const stars: Star[] = []
     for (let row = 0; row < nY; row++) {
       for (let col = 0; col < nX; col++) {
+        if (!randomInt(4)) stars.push(randomStar(row, col))
+        if (!randomInt(4)) stars.push(randomStar(row, col))
+        if (!randomInt(3)) stars.push(randomStar(row, col))
         if (!randomInt(2)) stars.push(randomStar(row, col))
+        if (!randomInt(1)) stars.push(randomStar(row, col))
         if (!randomInt(1)) stars.push(randomStar(row, col))
       }
     }
@@ -52,15 +56,17 @@ export const Stars = ({ rand }: { rand?: unknown }) => {
     <>
       {Object.keys(starGroups).map((widthKey, index, arr) => {
         const items = starGroups[widthKey]
+        const width = Number(widthKey)
         return (
           <Parallax
             className={classNames(
               'absolute inset-0 pointer-events-none',
-              index === arr.length - 1 &&
+              index === 0 &&
                 'bg-gradient-to-b from-transparent from-90% to-pink-400 to-[130%]'
             )}
             key={widthKey}
-            speed={-80 + Number(widthKey) * 4}
+            speed={-80 + width * 4}
+            translateX={[(-10 * width) / 2, (10 * width) / 2]}
           >
             {items?.map(({ x, y, opacity, width, color }, index) => (
               <div

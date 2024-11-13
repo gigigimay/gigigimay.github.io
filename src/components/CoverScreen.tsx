@@ -184,7 +184,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
       <div
         className={classNames(
           'circle',
-          'w-80 h-80 rounded-full border-4 border-dotted border-white border-opacity-20'
+          'w-60 h-60 sm:w-80 sm:h-80 rounded-full border-4 border-dotted border-white border-opacity-20'
         )}
       >
         <div className="inner" />
