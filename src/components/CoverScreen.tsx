@@ -215,7 +215,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
         />
         <div
           className={classNames(
-            'text-lg',
+            'text-sm sm:text-lg',
             'transition-all',
             step < 3 && '!opacity-0 !-translate-y-2'
           )}
@@ -224,7 +224,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
         </div>
         <div
           className={classNames(
-            'text-body text-lg',
+            'text-body text-sm sm:text-lg',
             'transition-all',
             step < 4 && '!opacity-0 !-translate-y-2'
           )}

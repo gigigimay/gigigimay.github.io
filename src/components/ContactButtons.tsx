@@ -5,7 +5,7 @@ import { contacts } from 'config/content'
 
 export const ContactButtons = () => {
   return (
-    <div className="mt-4 flex space-x-4 text-[var(--b1)]">
+    <div className="mt-4 flex flex-wrap gap-4 text-[var(--p)]">
       <a
         className="icon-btn group"
         href={contacts.github}

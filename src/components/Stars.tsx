@@ -62,7 +62,7 @@ export const Stars = ({ rand }: { rand?: unknown }) => {
             className={classNames(
               'absolute inset-0 pointer-events-none',
               index === 0 &&
-                'bg-gradient-to-b from-transparent from-85% to-pink-400 to-[120%]'
+                'bg-gradient-to-b from-transparent from-[88%] to-pink-400 to-[130%]'
             )}
             key={widthKey}
             speed={-60 + width * 4}

@@ -5,11 +5,11 @@
 
 @layer components {
   .screen-section {
-    @apply w-full flex items-center justify-center transition-all py-32;
+    @apply w-full flex items-center justify-center transition-all pt-28 pb-48;
   }
 
   .container {
-    @apply mx-auto;
+    @apply mx-auto px-4;
   }
 
   .icon-btn {
@@ -42,8 +42,8 @@ body {
 }
 
 :root {
-  --b1: rgb(70, 222, 227);
-  /* --b1: rgb(51, 179, 204); */
+  --p: rgb(70, 222, 227);
+  --b1: rgb(51, 179, 204);
   --b2: rgb(40, 121, 168);
   --b3: rgb(23, 79, 128);
   --b4: rgb(7, 29, 54);

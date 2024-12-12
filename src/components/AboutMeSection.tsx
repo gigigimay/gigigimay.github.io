@@ -1,29 +1,34 @@
 import jellyfish from 'assets/images/jellyfish.svg'
 import { Parallax } from 'react-scroll-parallax'
+import { Waves } from './Waves'
 
 export const AboutMeSection = () => {
   return (
-    <div className="screen-section bg-gray-950 text-white">
-      <div className="container flex space-x-12">
+    <div className="screen-section relative bg-gray-950 text-white">
+      <Waves
+        fill="rgb(3,7,18)"
+        className="bottom-full scale-y-[60%] translate-y-[40%]"
+      />
+      <div className="container flex flex-col md:flex-row space-x-12">
         <div className="flex-[2]">
           <h1 className="text-3xl font-black" id="about-me">
-            <span className="text-[var(--b1)]">A</span>bout me
+            <span className="text-[var(--p)]">A</span>bout me
           </h1>
           <p className="text-lg mt-6 text-body">
             Hello there, I'm Maytiya Monburinon—or just May! My fascination with
             programming started at an early age, back in 2010, I really liked
             building things with{' '}
-            <span className="text-[var(--b1)]">no/low-code tools</span>. The
+            <span className="text-[var(--p)]">no/low-code tools</span>. The
             satisfaction of making things that work sparked an interest that
             eventually led me to software engineering.
           </p>
           <p className="text-lg mt-6 text-body">
-            Today, as a software engineer with{' '}
-            <span className="text-[var(--b1)]">over 4 years of experience</span>
-            , I've worked on a variety of{' '}
-            <span className="text-[var(--b1)]">SaaS products</span>, guided
+            Today, as a full-stack software engineer with{' '}
+            <span className="text-[var(--p)]">over 4 years of experience</span>,
+            I've worked on a variety of{' '}
+            <span className="text-[var(--p)]">SaaS products</span>, guided
             teams, and mentoring junior developers. My expertise lies in{' '}
-            <span className="text-[var(--b1)]">React and Node.js</span>, and I'm
+            <span className="text-[var(--p)]">React and Node.js</span>, and I'm
             passionate about crafting aesthetically pleasing and impactful
             websites that truly make a difference for users. I value writing
             clean, high-quality code, and I'm currently into exploring new
@@ -39,7 +44,7 @@ export const AboutMeSection = () => {
         <div className="flex-1 max-w-[600px] min-w-[200px] h-full relative">
           <Parallax
             speed={30}
-            className="absolute right-[25%] top-[10rem] w-[20%]"
+            className="absolute right-[25%] md:top-[10rem] w-[20%]"
           >
             <img
               src={jellyfish}
@@ -49,7 +54,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={40}
-            className="absolute right-[0%] top-[12rem] w-[25%]"
+            className="absolute right-[0%] md:top-[12rem] w-[25%]"
           >
             <img
               src={jellyfish}
@@ -59,7 +64,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={50}
-            className="absolute right-[40%] top-[14rem] w-[35%]"
+            className="absolute right-[40%] md:top-[14rem] w-[35%]"
           >
             <img
               src={jellyfish}

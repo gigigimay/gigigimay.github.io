@@ -1,10 +1,13 @@
+import classNames from 'classnames'
+
 interface WavesProps {
   fill?: string
+  className?: string
 }
 
-export const Waves = ({ fill = '#ffffff' }: WavesProps) => {
+export const Waves = ({ fill = '#ffffff', className }: WavesProps) => {
   return (
-    <div className="absolute bottom-0 left-0 right-0 scale-y-[60%] translate-y-[40%]">
+    <div className={classNames('absolute bottom-0 left-0 right-0', className)}>
       <svg
         className="waves"
         xmlns="http://www.w3.org/2000/svg"
