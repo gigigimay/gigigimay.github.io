@@ -3,7 +3,8 @@ import { useState } from 'react'
 import CoverScreen from 'components/CoverScreen'
 import { TitleSection } from 'components/TitleSection'
 import { AboutMeSection } from 'components/AboutMeSection'
-import { SkillsSection } from 'components/SkillsSection'
+import { Menu } from 'components/Menu'
+// import { SkillsSection } from 'components/SkillsSection'
 
 const App = () => {
   const [isIntroDone, setIsIntroDone] = useState(false)
@@ -11,10 +12,10 @@ const App = () => {
   return (
     <>
       {!isIntroDone && <CoverScreen onDone={() => setIsIntroDone(true)} />}
-
+      <Menu />
       <TitleSection isIntroDone={isIntroDone} />
       <AboutMeSection />
-      <SkillsSection />
+      {/* <SkillsSection /> */}
 
       <div className="screen-section bg-[var(--b2)] text-white">
         <div className="">Work Experience</div>

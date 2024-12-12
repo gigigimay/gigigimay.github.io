@@ -229,7 +229,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
             step < 4 && '!opacity-0 !-translate-y-2'
           )}
         >
-          - click anywhere to advance -
+          - click anywhere to enter -
         </div>
       </div>
       {/* <div

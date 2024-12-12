@@ -12,6 +12,14 @@
     @apply mx-auto px-4;
   }
 
+  .content-left {
+    @apply flex-[2];
+  }
+
+  .content-right {
+    @apply flex-1 max-w-[600px] min-w-[200px] relative;
+  }
+
   .icon-btn {
     @apply flex items-center space-x-2 bg-white/5 px-3 py-2 rounded-md;
   }

@@ -5,13 +5,14 @@ import { Waves } from './Waves'
 export const AboutMeSection = () => {
   return (
     <div className="screen-section relative bg-gray-950 text-white">
+      <div id="about-me" className="absolute top-0" />
       <Waves
         fill="rgb(3,7,18)"
         className="bottom-full scale-y-[60%] translate-y-[40%]"
       />
       <div className="container flex flex-col md:flex-row space-x-12">
-        <div className="flex-[2]">
-          <h1 className="text-3xl font-black" id="about-me">
+        <div className="content-left">
+          <h1 className="text-3xl font-black">
             <span className="text-[var(--p)]">A</span>bout me
           </h1>
           <p className="text-lg mt-6 text-body">
@@ -23,7 +24,7 @@ export const AboutMeSection = () => {
             eventually led me to software engineering.
           </p>
           <p className="text-lg mt-6 text-body">
-            Today, as a full-stack software engineer with{' '}
+            Today, as a software engineer with{' '}
             <span className="text-[var(--p)]">over 4 years of experience</span>,
             I've worked on a variety of{' '}
             <span className="text-[var(--p)]">SaaS products</span>, guided
@@ -41,7 +42,7 @@ export const AboutMeSection = () => {
           </p>
         </div>
 
-        <div className="flex-1 max-w-[600px] min-w-[200px] h-full relative">
+        <div className="content-right">
           <Parallax
             speed={30}
             className="absolute right-[25%] md:top-[10rem] w-[20%]"

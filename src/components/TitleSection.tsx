@@ -37,6 +37,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
         'bg-gradient-to-b from-gray-900 to-blue-950 to-90%'
       )}
     >
+      <div id="top" className="absolute top-0" />
       <Stars rand={starsRand} />
 
       <div
@@ -64,7 +65,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           Maytiya Monburinon.
         </h1>
         <p className={classNames('text-lg sm:text-3xl')}>
-          Full-stack Software Engineer,
+          Software Engineer,
           <span className="text-body"> specialized in React and Node.js.</span>
         </p>
         <ContactButtons />

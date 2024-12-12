@@ -19,7 +19,7 @@ export default {
         },
         jellyfish: {
           '0%': {
-            transform: 'translateY(0)',
+            transform: 'translateY(0) scaleX(110%)',
             animationTimingFunction: 'ease-out',
           },
           '10%': {
@@ -31,7 +31,7 @@ export default {
             animationTimingFunction: 'ease-in',
           },
           '100%': {
-            transform: 'translateY(0)',
+            transform: 'translateY(0) scaleX(110%)',
           },
         },
       },
