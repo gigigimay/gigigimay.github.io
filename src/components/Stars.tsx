@@ -54,7 +54,7 @@ export const Stars = ({ rand }: { rand?: unknown }) => {
 
   return (
     <>
-      {Object.keys(starGroups).map((widthKey, index, arr) => {
+      {Object.keys(starGroups).map((widthKey, index) => {
         const items = starGroups[widthKey]
         const width = Number(widthKey)
         return (
@@ -62,11 +62,11 @@ export const Stars = ({ rand }: { rand?: unknown }) => {
             className={classNames(
               'absolute inset-0 pointer-events-none',
               index === 0 &&
-                'bg-gradient-to-b from-transparent from-90% to-pink-400 to-[130%]'
+                'bg-gradient-to-b from-transparent from-85% to-pink-400 to-[130%]'
             )}
             key={widthKey}
-            speed={-80 + width * 4}
-            translateX={[(-10 * width) / 2, (10 * width) / 2]}
+            speed={-60 + width * 4}
+            translateX={[(-5 * width) / 2, (5 * width) / 2]}
           >
             {items?.map(({ x, y, opacity, width, color }, index) => (
               <div

@@ -1,19 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   .screen-section {
-    @apply min-h-[100dvh] w-full flex items-center justify-center transition-all;
+    @apply w-full flex items-center justify-center transition-all py-32;
+  }
+
+  .container {
+    @apply mx-auto;
+  }
+
+  .icon-btn {
+    @apply flex items-center space-x-2 bg-white/5 px-3 py-2 rounded-md;
+  }
+
+  .icon-btn > svg {
+    @apply w-5 h-5 block transition-all;
+  }
+
+  .icon-btn > span {
+    @apply text-white font-semibold;
+  }
+
+  .icon-btn:hover > svg {
+    @apply scale-110;
+  }
+
+  .icon-btn:active > svg {
+    @apply rotate-12;
+  }
+
+  .text-body {
+    @apply text-white/60;
   }
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
 }
 
-h1 {
-  font-family: 'Rubik', sans-serif;
+:root {
+  --b1: rgb(70, 222, 227);
+  /* --b1: rgb(51, 179, 204); */
+  --b2: rgb(40, 121, 168);
+  --b3: rgb(23, 79, 128);
+  --b4: rgb(7, 29, 54);
 }
