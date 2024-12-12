@@ -7,22 +7,23 @@ export const AboutMeSection = () => {
       <div className="container flex space-x-12">
         <div className="flex-[2]">
           <h1 className="text-3xl font-black" id="about-me">
-            About me
+            <span className="text-[var(--b1)]">A</span>bout me
           </h1>
           <p className="text-lg mt-6 text-body">
             Hello there, I'm Maytiya Monburinon—or just May! My fascination with
-            computers started at an early age, and it's been a part of my life
-            ever since.
+            programming started at an early age, back in 2010, I really liked
+            building things with{' '}
+            <span className="text-[var(--b1)]">no/low-code tools</span>. The
+            satisfaction of making things that work sparked an interest that
+            eventually led me to software engineering.
           </p>
           <p className="text-lg mt-6 text-body">
-            Back in 2010, I discovered the joy of building things with no-code
-            tools. The satisfaction of making something work sparked a lifelong
-            interest that eventually led me to software engineering.
-          </p>
-          <p className="text-lg mt-6 text-body">
-            Today, as a software engineer with over 4 years of experience, I've
-            worked on a variety of SaaS products, guided teams, and mentoring
-            junior developers. My expertise lies in React and Node.js, and I'm
+            Today, as a software engineer with{' '}
+            <span className="text-[var(--b1)]">over 4 years of experience</span>
+            , I've worked on a variety of{' '}
+            <span className="text-[var(--b1)]">SaaS products</span>, guided
+            teams, and mentoring junior developers. My expertise lies in{' '}
+            <span className="text-[var(--b1)]">React and Node.js</span>, and I'm
             passionate about crafting aesthetically pleasing and impactful
             websites that truly make a difference for users. I value writing
             clean, high-quality code, and I'm currently into exploring new
@@ -30,7 +31,8 @@ export const AboutMeSection = () => {
           </p>
           <p className="text-lg mt-6 text-body">
             When I'm not coding, you can find me playing video games,
-            binge-watching Netflix, reading books, or playing music.
+            binge-watching Netflix, reading books, or playing music.{' '}
+            <span className="text-white/100">😋</span>
           </p>
         </div>
 

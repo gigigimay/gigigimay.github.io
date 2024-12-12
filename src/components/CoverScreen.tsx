@@ -111,21 +111,33 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   const [cols, setCols] = useState<number[]>()
   const [hiddenKeys, setHiddenKeys] = useState<Record<string, boolean>>({})
   const [isClicked, setIsClicked] = useState(false)
-  const [initialized, setInitialized] = useState(false)
+  const [step, setStep] = useState(0)
 
   useEffect(() => {
     setRows(createArray(nY))
     setCols(createArray(nX))
   }, [nX, nY])
 
+  useEffect(() => {
+    const initialize = async () => {
+      await delay(100)
+      setStep(1)
+      await delay(100)
+      setStep(2)
+      await delay(200)
+      setStep(3)
+      await delay(100)
+      setStep(4)
+      await delay(1000)
+      setStep(5)
+    }
+    initialize()
+  }, [])
+
   const hideTile = useCallback(
     (key: string) => setHiddenKeys((v) => ({ ...v, [key]: true })),
     []
   )
-
-  useEffect(() => {
-    setTimeout(() => setInitialized(true), 1000)
-  }, [])
 
   const onClick = useCallback(
     async (key: string) => {
@@ -179,18 +191,46 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
     <TileContainer
       className={classNames(
         'fixed inset-0 overflow-hidden z-50',
-        !initialized && 'pointer-events-none',
+        step < 5 && 'pointer-events-none',
         isClicked && 'clicked'
       )}
     >
       {tiles}
       <div className="mouse-icon text-white text-center">
-        <div className="text-3xl font-black tracking-widest uppercase">
+        <div
+          className={classNames(
+            'text-3xl font-black tracking-widest uppercase',
+            'transition-all',
+            step < 1 && '!opacity-0 !-translate-y-2'
+          )}
+        >
           Welcome!
         </div>
-        <MouseIcon className="w-10 mx-auto animate-explore my-8" />
-        <div className="text-lg">feel free to explore.</div>
-        <div className="text-body text-lg">- click anywhere to advance -</div>
+        <MouseIcon
+          className={classNames(
+            'w-10 mx-auto animate-explore my-8',
+            'transition-all',
+            step < 2 && '!opacity-0 !-translate-y-2'
+          )}
+        />
+        <div
+          className={classNames(
+            'text-lg',
+            'transition-all',
+            step < 3 && '!opacity-0 !-translate-y-2'
+          )}
+        >
+          feel free to explore.
+        </div>
+        <div
+          className={classNames(
+            'text-body text-lg',
+            'transition-all',
+            step < 4 && '!opacity-0 !-translate-y-2'
+          )}
+        >
+          - click anywhere to advance -
+        </div>
       </div>
       {/* <div
         className={classNames(

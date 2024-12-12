@@ -39,8 +39,8 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           Maytiya Monburinon.
         </h1>
         <p className={classNames('text-lg sm:text-3xl')}>
-          Full-stack Software Engineer.
-          <span className="text-body"> Specialized in React and Node.js.</span>
+          Full-stack Software Engineer,
+          <span className="text-body"> specialized in React and Node.js.</span>
         </p>
         <ContactButtons />
         <button
