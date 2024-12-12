@@ -24,8 +24,8 @@ const TileContainer = styled.div`
 
   .mouse-icon {
     transition-duration: 1s;
-    transition-timing-function: ease-in;
-    transition-delay: 3.5s;
+    transition-timing-function: ease-out;
+    transition-delay: 1s;
   }
 
   .circle {
@@ -51,10 +51,10 @@ const TileContainer = styled.div`
   &.clicked {
     .mouse-icon {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(2);
+      transform: translate(-50%, -50%) scale(0.9);
       transition-duration: 1s;
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-      transition-delay: 0.4s;
+      transition-delay: 0.2s;
     }
     .circle {
       opacity: 0;
@@ -74,7 +74,7 @@ const Tile = styled.div`
   width: ${TILE_SIZE}px;
   min-width: ${TILE_SIZE}px;
   height: ${TILE_SIZE}px;
-  background-color: #222222fa;
+  background-color: #222222fe;
   cursor: pointer;
 
   transition-property: opacity, background-color;
@@ -111,6 +111,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   const [cols, setCols] = useState<number[]>()
   const [hiddenKeys, setHiddenKeys] = useState<Record<string, boolean>>({})
   const [isClicked, setIsClicked] = useState(false)
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
     setRows(createArray(nY))
@@ -121,6 +122,10 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
     (key: string) => setHiddenKeys((v) => ({ ...v, [key]: true })),
     []
   )
+
+  useEffect(() => {
+    setTimeout(() => setInitialized(true), 1000)
+  }, [])
 
   const onClick = useCallback(
     async (key: string) => {
@@ -174,21 +179,27 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
     <TileContainer
       className={classNames(
         'fixed inset-0 overflow-hidden z-50',
+        !initialized && 'pointer-events-none',
         isClicked && 'clicked'
       )}
     >
       {tiles}
-      <div className="mouse-icon">
-        <MouseIcon className="text-white w-10" />
+      <div className="mouse-icon text-white text-center">
+        <div className="text-3xl font-black tracking-widest uppercase">
+          Welcome!
+        </div>
+        <MouseIcon className="w-10 mx-auto animate-explore my-8" />
+        <div className="text-lg">feel free to explore.</div>
+        <div className="text-body text-lg">- click anywhere to advance -</div>
       </div>
-      <div
+      {/* <div
         className={classNames(
           'circle',
-          'w-60 h-60 sm:w-80 sm:h-80 rounded-full border-4 border-dotted border-white border-opacity-20'
+          'w-60 sm:w-96 sm:h-96 rounded-full border-4 border-dotted border-white/20'
         )}
       >
-        <div className="inner" />
-      </div>
+        <div className={classNames('inner')} />
+      </div> */}
     </TileContainer>
   )
 }
