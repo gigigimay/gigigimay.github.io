@@ -26,7 +26,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
       />
       <div
         className={classNames(
-          'container relative p-8 z-10 text-left flex items-start flex-col'
+          'container relative z-10 text-left flex items-start flex-col'
         )}
       >
         <p className="text-xl sm:text-3xl text-[var(--b1)]">Hi there! I'm-</p>
@@ -45,7 +45,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
         <ContactButtons />
         <button
           className={classNames(
-            'group absolute left-2 top-2 -translate-x-1/2 -translate-y-1/2',
+            'group absolute -left-4 -top-3 -translate-x-1/2 -translate-y-1/2',
             'transition-all hover:scale-110 active:rotate-12'
           )}
           onClick={() => setStarsRand({})}
