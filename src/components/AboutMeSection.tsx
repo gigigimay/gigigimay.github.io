@@ -4,7 +4,7 @@ import { Waves } from './Waves'
 
 export const AboutMeSection = () => {
   return (
-    <div className="screen-section relative bg-gray-950 text-white">
+    <div className="screen-section relative bg-gradient-to-b from-gray-950 to-gray-900 text-white">
       <div id="about-me" className="absolute top-0" />
       <Waves
         fill="rgb(3,7,18)"

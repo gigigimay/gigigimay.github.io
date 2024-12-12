@@ -3,6 +3,7 @@ import { useState } from 'react'
 import CoverScreen from 'components/CoverScreen'
 import { TitleSection } from 'components/TitleSection'
 import { AboutMeSection } from 'components/AboutMeSection'
+import { ExperienceSection } from 'components/ExperienceSection'
 import { Menu } from 'components/Menu'
 // import { SkillsSection } from 'components/SkillsSection'
 
@@ -16,7 +17,7 @@ const App = () => {
       <TitleSection isIntroDone={isIntroDone} />
       <AboutMeSection />
       {/* <SkillsSection /> */}
-
+      <ExperienceSection />
       <div className="screen-section bg-[var(--b2)] text-white">
         <div className="">Work Experience</div>
       </div>

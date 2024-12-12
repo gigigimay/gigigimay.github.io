@@ -3,7 +3,7 @@ import { Stars } from 'components/Stars'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { ContactButtons } from './ContactButtons'
+// import { ContactButtons } from './ContactButtons'
 
 const StarsButton = ({ onClick }: { onClick: () => unknown }) => {
   return (
@@ -68,7 +68,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           Software Engineer,
           <span className="text-body"> specialized in React and Node.js.</span>
         </p>
-        <ContactButtons />
+        {/* <ContactButtons /> */}
       </div>
     </div>
   )

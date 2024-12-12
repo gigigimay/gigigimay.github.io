@@ -43,6 +43,10 @@
   .text-body {
     @apply text-white/60;
   }
+
+  .markdown-box li {
+    @apply list-disc list-outside ml-4;
+  }
 }
 
 body {
@@ -51,8 +55,14 @@ body {
 
 :root {
   --p: rgb(70, 222, 227);
-  --b1: rgb(51, 179, 204);
+
+  /* --b1: rgb(51, 179, 204);
   --b2: rgb(40, 121, 168);
   --b3: rgb(23, 79, 128);
-  --b4: rgb(7, 29, 54);
+  --b4: rgb(7, 29, 54); */
+
+  --b1: #3db7ea;
+  --b2: rgba(40, 124, 160, 1.0);
+  --b3: rgba(27, 87, 115, 1.0);
+  --b4: #0e2431;
 }
