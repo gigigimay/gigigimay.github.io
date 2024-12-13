@@ -5,6 +5,7 @@ import { TitleSection } from 'components/TitleSection'
 import { AboutMeSection } from 'components/AboutMeSection'
 import { ExperienceSection } from 'components/ExperienceSection'
 import { Menu } from 'components/Menu'
+import { ProjectsSection } from 'components/ProjectsSection'
 // import { SkillsSection } from 'components/SkillsSection'
 
 const App = () => {
@@ -18,15 +19,8 @@ const App = () => {
       <AboutMeSection />
       {/* <SkillsSection /> */}
       <ExperienceSection />
-      <div className="screen-section bg-[var(--b2)] text-white">
-        <div className="">Work Experience</div>
-      </div>
-      <div className="screen-section bg-[var(--b3)] text-white">
-        <div className="">Education</div>
-      </div>
-      <div className="screen-section bg-[var(--b4)] text-white">
-        <div className="">Side Projects</div>
-      </div>
+      <ProjectsSection />
+
       <div className="screen-section bg-white text-[var(--b4)]">
         <div className="">
           <div>Contact</div>

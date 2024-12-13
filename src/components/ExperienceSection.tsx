@@ -1,6 +1,6 @@
 import { Waves } from './Waves'
 import { ExperienceInfo } from 'types'
-import { educations, experiences } from 'config/content'
+import { educations, experiences } from 'config/experiences'
 import { marked } from 'marked'
 import classNames from 'classnames'
 

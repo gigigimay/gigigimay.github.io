@@ -19,6 +19,7 @@ interface MenuItemProps {
 const MenuItem = ({ icon, label, link }: MenuItemProps) => {
   return (
     <a
+      // TODO: add tooltip with label
       className="group transition-all hover:scale-110 active:rotate-12 text-center text-xl p-1"
       href={link}
       onClick={(e) => {
