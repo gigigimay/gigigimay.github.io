@@ -1,31 +1,7 @@
 import classNames from 'classnames'
 import { Stars } from 'components/Stars'
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-// import { ContactButtons } from './ContactButtons'
-
-const StarsButton = ({ onClick }: { onClick: () => unknown }) => {
-  return (
-    <button
-      className={classNames(
-        'group',
-        // 'absolute -left-4 -top-3 -translate-x-1/2 -translate-y-1/2',
-        'mb-4 sm:mb-8',
-        'transition-all hover:scale-110 active:rotate-12'
-      )}
-      onClick={onClick}
-    >
-      <FontAwesomeIcon
-        icon={faStar}
-        className={classNames(
-          'w-8 h-8 animate-spin-slow'
-          // 'drop-shadow-[0px_0px_4px_var(--b1)]'
-        )}
-      />
-    </button>
-  )
-}
+import { StarButton } from './StarButton'
 
 export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
   const [starsRand, setStarsRand] = useState({})
@@ -54,7 +30,7 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           'container relative z-10 text-left flex items-start flex-col'
         )}
       >
-        <StarsButton onClick={() => setStarsRand({})} />
+        <StarButton onClick={() => setStarsRand({})} />
         <p className="text-xl sm:text-3xl text-[var(--p)]">Hi there! I'm-</p>
         <h1
           className={classNames(

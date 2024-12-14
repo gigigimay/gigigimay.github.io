@@ -4,20 +4,37 @@ import { ProjectInfo } from 'types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useMemo } from 'react'
+import classNames from 'classnames'
 
 const ProjectItem = ({ project }: { project: ProjectInfo }) => {
-  const { techStacks, title, description, visitLink, repoLink, isPublic } =
-    project
+  const {
+    techStacks,
+    title,
+    description,
+    visitLink,
+    repoLink,
+    isPublic,
+    year,
+  } = project
   return (
-    <div className="flex flex-col gap-2 pt-12">
+    <div
+      className={classNames(
+        'flex-shrink-0 w-[400px] max-w-[calc(100vw-6rem)] bg-white/5 p-4 px-6 rounded-lg',
+        'snap-start',
+        'flex flex-col gap-2'
+      )}
+    >
       <div className="flex items-center gap-3">
-        <div className="text-lg font-semibold flex-1">{title}</div>
+        <div className="text-lg font-semibold flex-1">
+          {title} <span className="font-light text-xs text-body">{year}</span>
+        </div>
         {isPublic && repoLink ? (
           <a
             href={repoLink}
             target="_blank"
             rel="noreferrer"
-            className="hover:underline" // TODO: Add hover effect, reuse from menu and star buttons
+            className="icon-btn"
           >
             <FontAwesomeIcon icon={faGithub} className="block" />
           </a>
@@ -33,7 +50,7 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
             href={visitLink}
             target="_blank"
             rel="noreferrer"
-            className="text-[var(--p)] hover:underline"
+            className="text-[var(--p)] icon-btn"
           >
             <FontAwesomeIcon icon={faExternalLink} className="block" />
           </a>
@@ -43,7 +60,11 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
       <div className="flex gap-2 flex-wrap">
         {techStacks.map((tech) => (
           <a href={tech.url} target="_blank" rel="noreferrer" key={tech.name}>
-            <img src={tech.img} alt={tech.name} />
+            <img
+              src={tech.img}
+              alt={tech.name}
+              className="h-5 hover:scale-125 transition-all"
+            />
           </a>
         ))}
       </div>
@@ -52,30 +73,31 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
 }
 
 export const ProjectsSection = () => {
+  const sortedProjects = useMemo(
+    () => projects.sort((a, b) => b.year - a.year),
+    []
+  )
+
   return (
-    <div className="screen-section relative bg-gradient-to-b from-gray-950 to-gray-900 text-white">
+    <div className="screen-section relative bg-gradient-to-b from-gray-950 to-gray-900 text-white pb-56">
       <div id="projects" className="absolute top-0" />
       <Waves
         fill="rgb(3,7,18)"
         className="bottom-full scale-y-[60%] translate-y-[40%]"
       />
-      <div className="container flex flex-col md:flex-row space-x-12">
-        <div className="content-left">
-          <h1 className="text-3xl font-black">
-            <span className="text-[var(--p)]">P</span>rojects
-          </h1>
-          <div className="text-body mb-2">
-            Outside of the full-time job, these are some of the projects that
-            I've built as a hobby, school, or freelance works.
-          </div>
-          <div>
-            {projects.map((project, index) => (
-              <ProjectItem key={index} project={project} />
-            ))}
-          </div>
+      <div className="container">
+        <h1 className="text-3xl font-black">
+          <span className="text-[var(--p)]">P</span>rojects
+        </h1>
+        <div className="text-body mt-2 mb-4 max-w-[50%]">
+          Outside of the full-time job, these are some of the projects that I've
+          built as a hobby, school, or freelance works.
         </div>
-
-        <div className="content-right"></div>
+        <div className="flex flex-nowrap gap-6 overflow-x-auto snap-x">
+          {sortedProjects.map((project, index) => (
+            <ProjectItem key={index} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   )

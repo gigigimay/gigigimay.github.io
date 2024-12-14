@@ -10,20 +10,21 @@ export const AboutMeSection = () => {
         fill="rgb(3,7,18)"
         className="bottom-full scale-y-[60%] translate-y-[40%]"
       />
+
       <div className="container flex flex-col md:flex-row space-x-12">
-        <div className="content-left">
-          <h1 className="text-3xl font-black">
+        <div className="content-left text-justify text-body text-lg">
+          <h1 className="text-3xl text-white font-black">
             <span className="text-[var(--p)]">A</span>bout me
           </h1>
-          <p className="text-lg mt-6 text-body">
-            Hello there, I'm Maytiya Monburinon—or just May! My fascination with
+          <p className="mt-6">
+            Hi, I'm Maytiya Monburinon—or just May! My fascination with
             programming started at an early age, back in 2010, I really liked
             building things with{' '}
             <span className="text-[var(--p)]">no/low-code tools</span>. The
-            satisfaction of making things that work sparked an interest that
+            satisfaction of making things work sparked an interest that
             eventually led me to software engineering.
           </p>
-          <p className="text-lg mt-6 text-body">
+          <p className="mt-6">
             Today, as a software engineer with{' '}
             <span className="text-[var(--p)]">over 4 years of experience</span>,
             I've worked on a variety of{' '}
@@ -35,7 +36,7 @@ export const AboutMeSection = () => {
             clean, high-quality code, and I'm currently into exploring new
             technologies to create unique, engaging visuals.
           </p>
-          <p className="text-lg mt-6 text-body">
+          <p className="mt-6">
             When I'm not coding, you can find me playing video games,
             binge-watching Netflix, reading books, or playing music.{' '}
             <span className="text-white/100">😋</span>
@@ -45,7 +46,7 @@ export const AboutMeSection = () => {
         <div className="content-right">
           <Parallax
             speed={30}
-            className="absolute right-[25%] md:top-[10rem] w-[20%]"
+            className="absolute right-[25%] md:top-[10rem] xl:top-[8rem] w-[20%]"
           >
             <img
               src={jellyfish}
@@ -55,7 +56,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={40}
-            className="absolute right-[0%] md:top-[12rem] w-[25%]"
+            className="absolute right-[0%] md:top-[12rem] xl:top-[10rem] w-[25%]"
           >
             <img
               src={jellyfish}
@@ -65,7 +66,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={50}
-            className="absolute right-[40%] md:top-[14rem] w-[35%]"
+            className="absolute right-[40%] md:top-[14rem] xl:top-[12rem] w-[35%]"
           >
             <img
               src={jellyfish}
@@ -78,3 +79,13 @@ export const AboutMeSection = () => {
     </div>
   )
 }
+
+/**
+ * LONG VERSION:
+Hello there, I'm Maytiya Monburinon—or just May! My fascination with programming started at an early age, back in 2010, I really liked building things with no/low-code tools. The satisfaction of making things work sparked an interest that eventually led me to software engineering.
+
+Today, as a software engineer with over 4 years of experience, I've worked on a variety of SaaS products, guided teams, and mentoring junior developers. My expertise lies in React and Node.js, and I'm passionate about crafting aesthetically pleasing and impactful websites that truly make a difference for users. I value writing clean, high-quality code, and I'm currently into exploring new technologies to create unique, engaging visuals.
+
+When I'm not coding, you can find me playing video games, binge-watching Netflix, reading books, or playing music. 😋
+
+ */

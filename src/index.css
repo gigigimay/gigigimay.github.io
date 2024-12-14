@@ -21,22 +21,26 @@
   }
 
   .icon-btn {
-    @apply flex items-center space-x-2 bg-white/5 px-3 py-2 rounded-md;
+    @apply transition-all hover:scale-110 active:rotate-12;
   }
 
-  .icon-btn > svg {
-    @apply w-5 h-5 block transition-all;
+  .contact-btn {
+    @apply flex items-center space-x-2;
   }
 
-  .icon-btn > span {
-    @apply text-white font-semibold;
+  .contact-btn > svg {
+    @apply block transition-all;
   }
 
-  .icon-btn:hover > svg {
+  .contact-btn > span {
+    @apply text-gray-950 font-semibold;
+  }
+
+  .contact-btn:hover > svg {
     @apply scale-110;
   }
 
-  .icon-btn:active > svg {
+  .contact-btn:active > svg {
     @apply rotate-12;
   }
 

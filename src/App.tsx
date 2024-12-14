@@ -6,6 +6,7 @@ import { AboutMeSection } from 'components/AboutMeSection'
 import { ExperienceSection } from 'components/ExperienceSection'
 import { Menu } from 'components/Menu'
 import { ProjectsSection } from 'components/ProjectsSection'
+import { ContactSection } from 'components/ContactSection'
 // import { SkillsSection } from 'components/SkillsSection'
 
 const App = () => {
@@ -17,19 +18,9 @@ const App = () => {
       <Menu />
       <TitleSection isIntroDone={isIntroDone} />
       <AboutMeSection />
-      {/* <SkillsSection /> */}
       <ExperienceSection />
       <ProjectsSection />
-
-      <div className="screen-section bg-white text-[var(--b4)]">
-        <div className="">
-          <div>Contact</div>
-          <div>Bangkok, Thailand</div>
-          <div>maytiya41@gmail.com</div>
-          <div>https://github.com/gigigimay</div>
-          <div>https://www.linkedin.com/in/maytiya-monburinon-275640172/</div>
-        </div>
-      </div>
+      <ContactSection />
     </>
   )
 }

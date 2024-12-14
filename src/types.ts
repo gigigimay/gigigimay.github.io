@@ -1,3 +1,5 @@
+import type { IconProp } from '@fortawesome/fontawesome-svg-core'
+
 export interface ExperienceInfo {
   title: string
   company: string
@@ -16,8 +18,15 @@ export interface TechStack {
 export interface ProjectInfo {
   title: string
   description: string
+  year: number
   visitLink?: string
   repoLink?: string
   isPublic?: boolean
   techStacks: TechStack[]
+}
+
+export interface Contact {
+  name: string
+  url: string
+  faIcon: IconProp
 }
