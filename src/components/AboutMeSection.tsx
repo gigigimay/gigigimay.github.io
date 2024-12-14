@@ -71,16 +71,15 @@ export const AboutMeSection = () => {
             <span className="text-[var(--p)]">A</span>bout me
           </h1>
           <p className="mt-6 indent-16">
-            Hi, I'm Maytiya Monburinon—or just May! As a software engineer with{' '}
-            <Highlightable>over 4 years of experience</Highlightable>, I've
-            worked on a variety of{' '}
-            <Highlightable>multi-tenant SaaS products</Highlightable>, guided
-            teams, and mentored junior developers. My expertise lies in{' '}
+            Hi, I'm Maytiya Monburinon—or just May! As a full-stack software
+            engineer with over 4 years of experience, I've worked on a variety
+            of multi-tenant SaaS products, guided teams, and mentored junior
+            developers. My expertise lies in{' '}
             <Highlightable>React and Node.js</Highlightable>, and I'm passionate
-            about crafting aesthetically pleasing and impactful websites that
-            truly make a difference for users. I value writing clean,
-            high-quality code, and I'm currently into exploring new technologies
-            to create unique, engaging visuals.
+            about crafting <Highlightable>aesthetically pleasing</Highlightable>{' '}
+            and impactful websites that truly make a difference for users. I
+            value writing clean, high-quality code, and I'm currently into
+            exploring new technologies to create unique, engaging visuals.
           </p>
         </div>
       </div>
