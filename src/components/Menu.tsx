@@ -33,6 +33,7 @@ export const Menu = () => {
   const location = useLocation()
 
   useEffect(() => {
+    if (!location.hash) return
     document.querySelector(location.hash)?.scrollIntoView({
       behavior: 'smooth',
     })
