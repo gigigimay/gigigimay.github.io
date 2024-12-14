@@ -76,6 +76,7 @@ export const TooltipBox = ({
         {children}
       </div>
       {isOpen &&
+        tooltipContent &&
         createPortal(
           <div
             ref={refs.setFloating}

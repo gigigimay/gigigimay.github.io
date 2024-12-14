@@ -18,7 +18,7 @@ const ContactButton = ({
   return (
     <TooltipBox
       tooltipContent={contact.name}
-      tooltipClassName="bg-white text-gray-950 py-0 px-0"
+      tooltipClassName="py-0 px-0"
       placement="bottom"
       className="contact-btn animate-jellyfish group"
       style={{ animationDelay: delay }}

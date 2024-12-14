@@ -50,19 +50,26 @@ export const ExperienceSection = () => {
       />
       <div className="container flex flex-col md:flex-row gap-12">
         <div className="content-left">
-          <h1 className="text-3xl font-black">Experience & Education</h1>
-          <h2 className="text-xl md:text-2xl font-bold mt-6 text-[var(--p)]">
-            Experience
-          </h2>
-          {experiences.map((exp, idx) => (
-            <ExperienceItem key={idx} data={exp} />
-          ))}
-          <h2 className="text-xl md:text-2xl font-bold mt-6 text-[var(--p)]">
-            Education
-          </h2>
-          {educations.map((exp, idx) => (
-            <ExperienceItem key={idx} data={exp} />
-          ))}
+          <h1 className="text-3xl font-black">
+            <span className="text-[var(--p)]">E</span>xperience &{' '}
+            <span className="text-[var(--p)]">E</span>ducation
+          </h1>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold mt-6 text-[var(--p)]">
+              Experience
+            </h2>
+            {experiences.map((exp, idx) => (
+              <ExperienceItem key={idx} data={exp} />
+            ))}
+          </div>
+          <div>
+            <h2 className="text-xl md:text-2xl font-bold mt-6 text-[var(--p)]">
+              Education
+            </h2>
+            {educations.map((exp, idx) => (
+              <ExperienceItem key={idx} data={exp} />
+            ))}
+          </div>
         </div>
         <div className="content-right">
           <Parallax
