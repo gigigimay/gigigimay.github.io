@@ -1,9 +1,17 @@
 import classNames from 'classnames'
 import { Stars } from 'components/Stars'
 import { useState } from 'react'
-import { StarButton } from './StarButton'
+import { CloudButton, StarButton } from './StarCloudButtons'
 
-export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
+interface TitleSectionProps {
+  isIntroDone: boolean
+  setIsIntroDone: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const TitleSection = ({
+  isIntroDone,
+  setIsIntroDone,
+}: TitleSectionProps) => {
   const [starsRand, setStarsRand] = useState({})
 
   return (
@@ -30,7 +38,10 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           'container relative z-10 text-left flex items-start flex-col'
         )}
       >
-        <StarButton onClick={() => setStarsRand({})} />
+        <div className="flex gap-4">
+          <StarButton onClick={() => setStarsRand({})} />
+          <CloudButton onClick={() => setIsIntroDone(false)} />
+        </div>
         <p className="text-xl sm:text-3xl text-[var(--p)]">Hi there! I'm-</p>
         <h1
           className={classNames(

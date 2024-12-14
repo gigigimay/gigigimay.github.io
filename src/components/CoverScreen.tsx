@@ -56,13 +56,6 @@ const TileContainer = styled.div`
       transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
       transition-delay: 0.2s;
     }
-    .circle {
-      opacity: 0;
-      width: 19rem;
-      height: 19rem;
-      transition-duration: 0.5s;
-      transition-delay: 0s;
-    }
   }
 
   &.clicked {
@@ -105,7 +98,12 @@ const Tile = styled.div`
 
 const createArray = (length: number) => Array.from({ length }, (_, k) => k)
 
-const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
+interface CoverScreenProps {
+  onDone?: () => unknown
+  initialClicked?: boolean
+}
+
+const CoverScreen = ({ onDone, initialClicked }: CoverScreenProps) => {
   const { nX, nY } = useScreenTiles(TILE_SIZE)
   const [rows, setRows] = useState<number[]>()
   const [cols, setCols] = useState<number[]>()
@@ -114,13 +112,33 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   const [step, setStep] = useState(0)
 
   useEffect(() => {
-    setRows(createArray(nY))
-    setCols(createArray(nX))
+    const rows = createArray(nY)
+    const cols = createArray(nX)
+    setRows(rows)
+    setCols(cols)
+
     window.document.documentElement.style.setProperty('overflow-y', 'hidden')
-  }, [nX, nY])
+
+    if (initialClicked) {
+      rows.forEach((row) => {
+        cols.forEach((col) => {
+          const key = `${row}.${col}`
+          setHiddenKeys((v) => ({ ...v, [key]: true }))
+          const dx = Math.abs(4 - col)
+          const dy = Math.abs(4 - row)
+          const distance = Math.round(Math.sqrt(dx ** 2 + dy ** 2))
+          const rand = randomInt(5) * 20
+          delay(distance * 50 + rand).then(() => {
+            setHiddenKeys((v) => ({ ...v, [key]: false }))
+          })
+        })
+      })
+    }
+  }, [initialClicked, nX, nY])
 
   useEffect(() => {
     const initialize = async () => {
+      if (initialClicked) await delay(2000)
       await delay(100)
       setStep(1) // text 1
       await delay(100)
@@ -133,7 +151,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
       setStep(5) // clickable
     }
     initialize()
-  }, [])
+  }, [initialClicked])
 
   const hideTile = useCallback(
     (key: string) => setHiddenKeys((v) => ({ ...v, [key]: true })),
@@ -180,14 +198,17 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
           return (
             <Tile
               key={key}
-              className={classNames({ hide: hiddenKeys[key] })}
+              className={classNames(
+                { hide: hiddenKeys[key] },
+                step < 5 && initialClicked && '!delay-0 !duration-1000'
+              )}
               onClick={() => onClick(key)}
             />
           )
         })}
       </div>
     ))
-  }, [cols, hiddenKeys, onClick, rows])
+  }, [cols, hiddenKeys, initialClicked, onClick, rows, step])
 
   return (
     <TileContainer
@@ -234,14 +255,6 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
           - click anywhere to enter -
         </div>
       </div>
-      {/* <div
-        className={classNames(
-          'circle',
-          'w-60 sm:w-96 sm:h-96 rounded-full border-4 border-dotted border-white/20'
-        )}
-      >
-        <div className={classNames('inner')} />
-      </div> */}
     </TileContainer>
   )
 }
