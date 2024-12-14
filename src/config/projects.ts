@@ -116,13 +116,30 @@ export const projects: ProjectInfo[] = [
     techStacks: [techStacks.flutter, techStacks.dart],
   },
   {
+    title: 'SheepHi',
+    description:
+      "2D side-scroller game where you have to fly with balloons through all deathly thorns and arrows to follow the wolf king's order and catch sheeps for him #GlobalGameJam2018.",
+    year: 2018,
+    visitLink: 'https://v3.globalgamejam.org/2018/games/sheephi-0',
+    isPublic: false,
+    techStacks: [techStacks.unity, techStacks.cSharp],
+  },
+  // {
+  //   title: 'The CORE',
+  //   description:
+  //     'A turn-based battle game made with Unity. Stories about a girl who sets out on a dangerous journey to find a cure for her sick mother.',
+  //   year: 2018,
+  //   isPublic: false,
+  //   techStacks: [techStacks.unity, techStacks.cSharp],
+  // },
+  {
     title: 'Ecio',
     description:
       'A 2D platformer game made with Unity. Stories about a heartbroken man going on adventure and trying to change himself in order to reconcile with the girl he loves.',
     year: 2017,
     visitLink: 'https://store.steampowered.com/app/1094580/Ecio/',
     isPublic: false,
-    techStacks: [techStacks.unity, techStacks.cSharp],
+    techStacks: [techStacks.construct2],
   },
   {
     title: 'Krittika',
@@ -132,14 +149,5 @@ export const projects: ProjectInfo[] = [
     visitLink: 'https://v3.globalgamejam.org/2017/games/krittika',
     isPublic: false,
     techStacks: [techStacks.construct2],
-  },
-  {
-    title: 'SheepHi',
-    description:
-      "2D side-scroller game where you have to fly with balloons through all deathly thorns and arrows to follow the wolf king's order and catch sheeps for him #GlobalGameJam2018.",
-    year: 2018,
-    visitLink: 'https://v3.globalgamejam.org/2018/games/sheephi-0',
-    isPublic: false,
-    techStacks: [techStacks.unity, techStacks.cSharp],
   },
 ]
