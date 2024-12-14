@@ -116,6 +116,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   useEffect(() => {
     setRows(createArray(nY))
     setCols(createArray(nX))
+    window.document.documentElement.style.setProperty('overflow-y', 'hidden')
   }, [nX, nY])
 
   useEffect(() => {
@@ -143,6 +144,7 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
     async (key: string) => {
       if (isClicked || !rows || !cols) return
       setIsClicked(true)
+      window.document.documentElement.style.setProperty('overflow-y', 'auto')
 
       const clickedX = Number(key.split('.')[1])
       const clickedY = Number(key.split('.')[0])

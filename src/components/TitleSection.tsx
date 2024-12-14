@@ -44,7 +44,6 @@ export const TitleSection = ({ isIntroDone }: { isIntroDone: boolean }) => {
           Software Engineer,
           <span className="text-body"> specialized in React and Node.js.</span>
         </p>
-        {/* <ContactButtons /> */}
       </div>
     </div>
   )
