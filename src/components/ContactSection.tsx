@@ -22,7 +22,7 @@ const ContactButton = ({
       rel="noreferrer"
       style={{ animationDelay: delay }}
     >
-      <FontAwesomeIcon icon={contact.faIcon} className="text-5xl" />
+      <FontAwesomeIcon icon={contact.faIcon} className="text-4xl md:text-5xl" />
     </a>
   )
 }
@@ -36,10 +36,10 @@ export const ContactSection = () => {
         className="bottom-full scale-y-[60%] translate-y-[28px]"
       /> */}
       <Parallax
-        speed={-10}
-        className="absolute bottom-[calc(100%-180px)] right-4 md:right-[10rem] xl:right-[20%]"
+        speed={-20}
+        className="absolute bottom-[calc(100%-180px)] md:bottom-[calc(100%-260px)] right-4 md:right-[10rem] xl:right-[20%]"
       >
-        <img src={octopusImg} className="w-[150px] md:w-[300px]" />
+        <img src={octopusImg} className="w-[200px] md:w-[300px]" />
       </Parallax>
       <Parallax speed={10} className="absolute bottom-full left-0 right-0">
         <img
@@ -55,7 +55,7 @@ export const ContactSection = () => {
       </Parallax>
 
       <div className="container text-center bg-white z-10">
-        <h1 className="text-4xl font-black mb-8">Get In Touch;</h1>
+        <h1 className="text-2xl md:text-4xl font-black mb-8">Get In Touch</h1>
         <div className="flex flex-wrap justify-center gap-6">
           {contacts.map((contact, index) => (
             <ContactButton
@@ -64,15 +64,6 @@ export const ContactSection = () => {
               delay={`${((index + 1) / 2) * 1000}ms`}
             />
           ))}
-          {/* <a
-              className="contact-btn group"
-              href={resumeContact.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FontAwesomeIcon icon={faFileLines} />
-              <span>Resume</span>
-            </a> */}
         </div>
         <div className="text-xs text-opacity-30 w-full mt-20">
           © 2024 Maytiya Monburinon

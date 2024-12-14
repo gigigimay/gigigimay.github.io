@@ -51,13 +51,26 @@
   .markdown-box li {
     @apply list-disc list-outside ml-4;
   }
+
+  #project-list::-webkit-scrollbar-track {
+    @apply bg-white/10 rounded-lg;
+  }
+
+  #project-list::-webkit-scrollbar {
+    @apply h-2 rounded-lg border-2 border-gray-900;
+  }
+
+  #project-list::-webkit-scrollbar-thumb {
+    @apply bg-white rounded-lg;
+  }
 }
 
 body {
   font-family: 'Bai Jamjuree', sans-serif;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden !important;
 }
@@ -71,7 +84,7 @@ html, body {
   --b4: rgb(7, 29, 54); */
 
   --b1: #3db7ea;
-  --b2: rgba(40, 124, 160, 1.0);
-  --b3: rgba(27, 87, 115, 1.0);
+  --b2: rgba(40, 124, 160, 1);
+  --b3: rgba(27, 87, 115, 1);
   --b4: #0e2431;
 }

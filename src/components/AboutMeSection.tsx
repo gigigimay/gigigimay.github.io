@@ -15,7 +15,7 @@ export const AboutMeSection = () => {
         <div className="content-right">
           <Parallax
             speed={30}
-            className="absolute left-[25%] top-[8rem] xl:top-[8rem] w-[20%]"
+            className="absolute left-[25%] top-[-4rem] md:top-[8rem] xl:top-[8rem] w-[20%]"
           >
             <img
               src={jellyfish}
@@ -25,7 +25,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={40}
-            className="absolute left-[0%] top-[12rem] xl:top-[10rem] w-[30%]"
+            className="absolute left-[0%] top-[-4rem] md:top-[12rem] xl:top-[10rem] w-[30%]"
           >
             <img
               src={jellyfish}
@@ -35,7 +35,7 @@ export const AboutMeSection = () => {
           </Parallax>
           <Parallax
             speed={50}
-            className="absolute left-[40%] top-[14rem] xl:top-[12rem] w-[45%]"
+            className="absolute left-[40%] top-[-4rem] md:top-[14rem] xl:top-[12rem] w-[45%]"
           >
             <img
               src={jellyfish}
@@ -45,7 +45,7 @@ export const AboutMeSection = () => {
           </Parallax>
         </div>
 
-        <div className="content-left text-justify text-body text-lg">
+        <div className="content-left text-justify text-body text-sm md:text-lg">
           <h1 className="text-3xl text-white font-black">
             <span className="text-[var(--p)]">A</span>bout me
           </h1>

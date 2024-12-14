@@ -25,36 +25,38 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
         'flex flex-col gap-2'
       )}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col-reverse md:flex-row md:items-center gap-2 md:gap-3">
         <div className="text-lg font-semibold flex-1">
           {title} <span className="font-light text-xs text-body">{year}</span>
         </div>
-        {isPublic && repoLink ? (
-          <a
-            href={repoLink}
-            target="_blank"
-            rel="noreferrer"
-            className="icon-btn"
-          >
-            <FontAwesomeIcon icon={faGithub} className="block" />
-          </a>
-        ) : (
-          <FontAwesomeIcon
-            icon={faGithub}
-            className="text-body opacity-20 block"
-            // TODO: add tooltip saying "This project is not public"
-          />
-        )}
-        {visitLink && (
-          <a
-            href={visitLink}
-            target="_blank"
-            rel="noreferrer"
-            className="text-[var(--p)] icon-btn"
-          >
-            <FontAwesomeIcon icon={faExternalLink} className="block" />
-          </a>
-        )}
+        <div className="flex flex-row-reverse self-start md:flex-row gap-3">
+          {isPublic && repoLink ? (
+            <a
+              href={repoLink}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-btn"
+            >
+              <FontAwesomeIcon icon={faGithub} className="block" />
+            </a>
+          ) : (
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="text-body opacity-20 block"
+              // TODO: add tooltip saying "This project is not public"
+            />
+          )}
+          {visitLink && (
+            <a
+              href={visitLink}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[var(--p)] icon-btn"
+            >
+              <FontAwesomeIcon icon={faExternalLink} className="block" />
+            </a>
+          )}
+        </div>
       </div>
       <div className="text-sm text-body">{description}</div>
       <div className="flex gap-2 flex-wrap">
@@ -93,7 +95,10 @@ export const ProjectsSection = () => {
           Outside of the full-time job, these are some of the projects that I've
           built as a hobby, school, or freelance works.
         </div>
-        <div className="flex flex-nowrap gap-6 overflow-x-auto snap-x">
+        <div
+          id="project-list"
+          className="flex flex-nowrap gap-6 overflow-x-scroll pb-2 snap-x"
+        >
           {sortedProjects.map((project, index) => (
             <ProjectItem key={index} project={project} />
           ))}
