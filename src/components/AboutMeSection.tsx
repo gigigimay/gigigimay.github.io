@@ -11,7 +11,40 @@ export const AboutMeSection = () => {
         className="bottom-full scale-y-[60%] translate-y-[40%]"
       />
 
-      <div className="container flex flex-col md:flex-row space-x-12">
+      <div className="container flex flex-col-reverse md:flex-row gap-12">
+        <div className="content-right">
+          <Parallax
+            speed={30}
+            className="absolute left-[25%] top-[8rem] xl:top-[8rem] w-[20%]"
+          >
+            <img
+              src={jellyfish}
+              className="w-full animate-jellyfish"
+              style={{ animationDelay: '-1.5s' }}
+            />
+          </Parallax>
+          <Parallax
+            speed={40}
+            className="absolute left-[0%] top-[12rem] xl:top-[10rem] w-[30%]"
+          >
+            <img
+              src={jellyfish}
+              className="w-full animate-jellyfish"
+              style={{ animationDelay: '-1s' }}
+            />
+          </Parallax>
+          <Parallax
+            speed={50}
+            className="absolute left-[40%] top-[14rem] xl:top-[12rem] w-[45%]"
+          >
+            <img
+              src={jellyfish}
+              className="w-full animate-jellyfish"
+              style={{ animationDelay: '-0.5s' }}
+            />
+          </Parallax>
+        </div>
+
         <div className="content-left text-justify text-body text-lg">
           <h1 className="text-3xl text-white font-black">
             <span className="text-[var(--p)]">A</span>bout me
@@ -41,39 +74,6 @@ export const AboutMeSection = () => {
             binge-watching Netflix, reading books, or playing music.{' '}
             <span className="text-white/100">😋</span>
           </p>
-        </div>
-
-        <div className="content-right">
-          <Parallax
-            speed={30}
-            className="absolute right-[25%] md:top-[10rem] xl:top-[8rem] w-[20%]"
-          >
-            <img
-              src={jellyfish}
-              className="w-full animate-jellyfish"
-              style={{ animationDelay: '-1.5s' }}
-            />
-          </Parallax>
-          <Parallax
-            speed={40}
-            className="absolute right-[0%] md:top-[12rem] xl:top-[10rem] w-[25%]"
-          >
-            <img
-              src={jellyfish}
-              className="w-full animate-jellyfish"
-              style={{ animationDelay: '-1s' }}
-            />
-          </Parallax>
-          <Parallax
-            speed={50}
-            className="absolute right-[40%] md:top-[14rem] xl:top-[12rem] w-[35%]"
-          >
-            <img
-              src={jellyfish}
-              className="w-full animate-jellyfish"
-              style={{ animationDelay: '-0.5s' }}
-            />
-          </Parallax>
         </div>
       </div>
     </div>

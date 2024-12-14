@@ -63,7 +63,7 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
             <img
               src={tech.img}
               alt={tech.name}
-              className="h-5 hover:scale-125 transition-all"
+              className="h-5 hover:scale-110 transition-all"
             />
           </a>
         ))}
@@ -89,7 +89,7 @@ export const ProjectsSection = () => {
         <h1 className="text-3xl font-black">
           <span className="text-[var(--p)]">P</span>rojects
         </h1>
-        <div className="text-body mt-2 mb-4 max-w-[50%]">
+        <div className="text-body mt-2 mb-4 max-w-[600px]">
           Outside of the full-time job, these are some of the projects that I've
           built as a hobby, school, or freelance works.
         </div>

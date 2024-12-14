@@ -5,7 +5,7 @@ export const projects: ProjectInfo[] = [
   {
     title: 'APT. Tribute',
     description:
-      'An experimental webapp in the theme of APT. song from Rosé and Bruno Mars ❤️. Plays with WebGL, Three.js, and mix-blend-mode CSS.',
+      'An experimental webapp in the theme of APT. song from Bruno Mars and Rosé ❤️. Plays with WebGL, Three.js, and mix-blend-mode CSS.',
     year: 2024,
     visitLink: 'https://3d-apateu.vercel.app/',
     repoLink: 'https://github.com/gigigimay/3d-apateu',
@@ -20,6 +20,7 @@ export const projects: ProjectInfo[] = [
     repoLink: 'https://github.com/gigigimay/bubeepbot',
     isPublic: true,
     techStacks: [
+      techStacks.nodeJs,
       techStacks.discordJs,
       techStacks.typescript,
       techStacks.heroku,
@@ -61,7 +62,7 @@ export const projects: ProjectInfo[] = [
     year: 2021,
     visitLink: 'https://peerapatresidence.com/',
     isPublic: false,
-    techStacks: [techStacks.react, techStacks.gatsby],
+    techStacks: [techStacks.gatsby, techStacks.react, techStacks.javascript],
   },
   {
     title: 'Google SERP Scraper',
@@ -86,7 +87,7 @@ export const projects: ProjectInfo[] = [
     title: 'LINE Town Election',
     description:
       "A webapp that allow you to vote for your favorite LINE Town characters, with GraphQL and real-time update via websocket. Let's see who will be the next mayor!",
-    visitLink: 'https://line-assignment-2022-app.vercel.app/',
+    // visitLink: 'https://line-assignment-2022-app.vercel.app/',
     year: 2022,
     isPublic: false,
     techStacks: [

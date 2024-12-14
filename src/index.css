@@ -5,7 +5,7 @@
 
 @layer components {
   .screen-section {
-    @apply w-full flex items-center justify-center transition-all pt-28 pb-48;
+    @apply w-full flex items-center justify-center transition-all pt-20 pb-48;
   }
 
   .container {
@@ -55,6 +55,11 @@
 
 body {
   font-family: 'Bai Jamjuree', sans-serif;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
 }
 
 :root {
