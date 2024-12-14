@@ -70,7 +70,7 @@ export const AboutMeSection = () => {
           <h1 className="text-3xl text-white font-black text-right">
             <span className="text-[var(--p)]">A</span>bout me
           </h1>
-          <p className="mt-6">
+          <p className="mt-6 indent-16">
             Hi, I'm Maytiya Monburinon—or just May! As a software engineer with{' '}
             <Highlightable>over 4 years of experience</Highlightable>, I've
             worked on a variety of{' '}
