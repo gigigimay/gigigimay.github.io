@@ -1,63 +1,42 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import {
-  faCode,
-  faHashtag,
-  faMailBulk,
-  faSuitcase,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames'
-import { useEffect, useState } from 'react'
-
-interface MenuItemProps {
-  icon: IconProp
-  label: string
-  link: string
-}
+import { useEffect } from 'react'
+import { TooltipBox } from './TooltipBox'
+import { MenuItemProps } from 'types'
+import { menuItems } from 'config/menu'
+import { useLocation, useNavigate } from 'react-router'
 
 const MenuItem = ({ icon, label, link }: MenuItemProps) => {
+  const navigate = useNavigate()
+
   return (
-    <a
-      // TODO: add tooltip with label
-      className="group icon-btn text-center text-xl p-1"
-      href={link}
-      onClick={(e) => {
-        e.preventDefault()
-        document.querySelector(link)?.scrollIntoView({
-          behavior: 'smooth',
-        })
-      }}
+    <TooltipBox
+      className="icon-btn text-center text-xl p-1"
+      tooltipContent={label}
+      placement="left"
     >
-      <FontAwesomeIcon icon={icon} className="block mx-auto" />
-    </a>
+      <a
+        href={link}
+        aria-label={label}
+        onClick={(e) => {
+          e.preventDefault()
+          navigate(link)
+        }}
+      >
+        <FontAwesomeIcon icon={icon} className="block mx-auto" />
+      </a>
+    </TooltipBox>
   )
 }
 
-const menuItems: MenuItemProps[] = [
-  { icon: faHashtag, label: 'Home', link: '#top' },
-  { icon: faUser, label: 'About Me', link: '#about-me' },
-  { icon: faSuitcase, label: 'Experience & Education', link: '#experience' },
-  { icon: faCode, label: 'Side Projects', link: '#projects' },
-  { icon: faMailBulk, label: 'Contact', link: '#contact' },
-]
-
 export const Menu = () => {
-  const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
-    const onScroll = () => {
-      const scrollPercent = window.scrollY / window.innerHeight
-      setScrolled((prev) => {
-        if (!prev && scrollPercent > 0.7) return true
-        if (prev && scrollPercent < 0.6) return false
-        return prev
-      })
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    document.querySelector(location.hash)?.scrollIntoView({
+      behavior: 'smooth',
+    })
+  }, [location.hash])
 
   return (
     <div

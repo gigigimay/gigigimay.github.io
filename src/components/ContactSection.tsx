@@ -6,6 +6,7 @@ import { contacts } from 'config/contact'
 import groundImg from 'assets/images/ground.svg'
 import bubblesImg from 'assets/images/bubbles.svg'
 import octopusImg from 'assets/images/octopus.svg'
+import { TooltipBox } from './TooltipBox'
 
 const ContactButton = ({
   contact,
@@ -15,15 +16,20 @@ const ContactButton = ({
   delay?: string
 }) => {
   return (
-    <a
+    <TooltipBox
+      tooltipContent={contact.name}
+      tooltipClassName="bg-white text-gray-950 py-0 px-0"
+      placement="bottom"
       className="contact-btn animate-jellyfish group"
-      href={contact.url}
-      target="_blank"
-      rel="noreferrer"
       style={{ animationDelay: delay }}
     >
-      <FontAwesomeIcon icon={contact.faIcon} className="text-4xl md:text-5xl" />
-    </a>
+      <a className="" href={contact.url} target="_blank" rel="noreferrer">
+        <FontAwesomeIcon
+          icon={contact.faIcon}
+          className="text-4xl md:text-5xl"
+        />
+      </a>
+    </TooltipBox>
   )
 }
 

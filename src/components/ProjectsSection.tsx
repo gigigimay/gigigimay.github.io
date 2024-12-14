@@ -6,6 +6,7 @@ import { faExternalLink } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useMemo } from 'react'
 import classNames from 'classnames'
+import { TooltipBox } from './TooltipBox'
 
 const ProjectItem = ({ project }: { project: ProjectInfo }) => {
   const {
@@ -40,11 +41,12 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
               <FontAwesomeIcon icon={faGithub} className="block" />
             </a>
           ) : (
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="text-body opacity-20 block"
-              // TODO: add tooltip saying "This project is not public"
-            />
+            <TooltipBox tooltipContent="Source code is private" placement="top">
+              <FontAwesomeIcon
+                icon={faGithub}
+                className="text-body opacity-20 block"
+              />
+            </TooltipBox>
           )}
           {visitLink && (
             <a

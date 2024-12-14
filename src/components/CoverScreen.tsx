@@ -122,15 +122,15 @@ const CoverScreen = ({ onDone }: { onDone?: () => unknown }) => {
   useEffect(() => {
     const initialize = async () => {
       await delay(100)
-      setStep(1)
+      setStep(1) // text 1
       await delay(100)
-      setStep(2)
+      setStep(2) // mouse icon
       await delay(200)
-      setStep(3)
+      setStep(3) // text 2
       await delay(100)
-      setStep(4)
+      setStep(4) // text 3
       await delay(1000)
-      setStep(5)
+      setStep(5) // clickable
     }
     initialize()
   }, [])

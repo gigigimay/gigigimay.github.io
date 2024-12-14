@@ -30,3 +30,9 @@ export interface Contact {
   url: string
   faIcon: IconProp
 }
+
+export interface MenuItemProps {
+  icon: IconProp
+  label: string
+  link: string
+}
