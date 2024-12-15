@@ -7,6 +7,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useMemo } from 'react'
 import classNames from 'classnames'
 import { TooltipBox } from './TooltipBox'
+import { sendEvent } from 'services/ga'
 
 const ProjectItem = ({ project }: { project: ProjectInfo }) => {
   const {
@@ -37,6 +38,19 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
               target="_blank"
               rel="noreferrer"
               className="icon-btn"
+              onClick={() => {
+                sendEvent('view_item', {
+                  currency: 'N/A',
+                  value: 0,
+                  items: [
+                    {
+                      item_id: title,
+                      item_name: title,
+                      item_category: 'repoLink',
+                    },
+                  ],
+                })
+              }}
             >
               <FontAwesomeIcon icon={faGithub} className="block" />
             </a>
@@ -54,6 +68,19 @@ const ProjectItem = ({ project }: { project: ProjectInfo }) => {
               target="_blank"
               rel="noreferrer"
               className="text-[var(--p)] icon-btn"
+              onClick={() => {
+                sendEvent('view_item', {
+                  currency: 'N/A',
+                  value: 0,
+                  items: [
+                    {
+                      item_id: title,
+                      item_name: title,
+                      item_category: 'visitLink',
+                    },
+                  ],
+                })
+              }}
             >
               <FontAwesomeIcon icon={faExternalLink} className="block" />
             </a>

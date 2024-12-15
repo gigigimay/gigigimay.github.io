@@ -7,6 +7,7 @@ import groundImg from 'assets/images/ground.svg'
 import bubblesImg from 'assets/images/bubbles.svg'
 import octopusImg from 'assets/images/octopus.svg'
 import { TooltipBox } from './TooltipBox'
+import { sendEvent } from 'services/ga'
 
 const ContactButton = ({
   contact,
@@ -23,7 +24,15 @@ const ContactButton = ({
       className="contact-btn animate-jellyfish group"
       style={{ animationDelay: delay }}
     >
-      <a className="" href={contact.url} target="_blank" rel="noreferrer">
+      <a
+        className=""
+        href={contact.url}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => {
+          sendEvent('contact_button_click', { type: contact.name })
+        }}
+      >
         <FontAwesomeIcon
           icon={contact.faIcon}
           className="text-4xl md:text-5xl"

@@ -5,6 +5,7 @@ import { TooltipBox } from './TooltipBox'
 import { MenuItemProps } from 'types'
 import { menuItems } from 'config/menu'
 import { useLocation, useNavigate } from 'react-router'
+import { sendEvent } from 'services/ga'
 
 const MenuItem = ({ icon, label, link }: MenuItemProps) => {
   const navigate = useNavigate()
@@ -20,6 +21,7 @@ const MenuItem = ({ icon, label, link }: MenuItemProps) => {
         aria-label={label}
         onClick={(e) => {
           e.preventDefault()
+          sendEvent('menu_click', { label })
           navigate(link)
         }}
       >

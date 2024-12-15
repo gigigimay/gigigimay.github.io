@@ -5,6 +5,7 @@ import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
 import MouseIcon from 'assets/icons/icon-pointer.svg?react'
 import { useScreenTiles } from 'hooks/useScreenTiles'
+import { sendEvent } from 'services/ga'
 
 const TILE_SIZE = 60
 
@@ -161,6 +162,7 @@ const CoverScreen = ({ onDone, initialClicked }: CoverScreenProps) => {
   const onClick = useCallback(
     async (key: string) => {
       if (isClicked || !rows || !cols) return
+      sendEvent('cover_screen_click', { key })
       setIsClicked(true)
       window.document.documentElement.style.setProperty('overflow-y', 'auto')
 
