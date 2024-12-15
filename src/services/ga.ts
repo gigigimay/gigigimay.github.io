@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GA_MEASUREMENT_ID } from 'config/env'
 
 declare global {
@@ -7,30 +8,33 @@ declare global {
 }
 
 const loadScriptToHead = (id: string, src: string) => {
-  if (document.getElementById(id)) return
-
-  const script = document.createElement('script')
-  script.id = id
-  script.src = src
-  script.async = true
-  document.head.appendChild(script)
+  return new Promise<void>((resolve) => {
+    if (document.getElementById(id)) return resolve()
+    const script = document.createElement('script')
+    script.id = id
+    script.src = src
+    script.async = true
+    script.onload = () => resolve()
+    document.head.appendChild(script)
+  })
 }
 
-const gtag = (...args: unknown[]) => {
-  window.dataLayer.push(args)
+function gtag() {
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments)
 }
 
-export const initGA = () => {
-  loadScriptToHead(
+export const initGA = async () => {
+  if (!GA_MEASUREMENT_ID) return
+
+  await loadScriptToHead(
     'ga-script',
     `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
   )
 
   window.dataLayer = window.dataLayer || []
-
-  gtag('js', new Date())
-  gtag('config', GA_MEASUREMENT_ID)
-  console.log('🍎 GA loaded:', GA_MEASUREMENT_ID)
+  ;(gtag as any)('js', new Date())
+  ;(gtag as any)('config', GA_MEASUREMENT_ID)
 }
 
 /**
@@ -40,5 +44,5 @@ export const sendEvent = (
   eventName: string,
   eventParams?: Record<string, unknown>
 ) => {
-  gtag('event', eventName, eventParams)
+  ;(gtag as any)('event', eventName, eventParams)
 }
