@@ -67,14 +67,14 @@ export const TooltipBox = ({
 
   return (
     <>
-      <div
+      <span
         ref={refs.setReference}
         {...getReferenceProps()}
         className={className}
         style={style}
       >
         {children}
-      </div>
+      </span>
       {isOpen &&
         tooltipContent &&
         createPortal(
