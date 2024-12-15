@@ -4,8 +4,13 @@ May's portfolio!
 
 ## Deployment
 
-This script will build the app and deploy to `master` branch
-```
+1. Create an `.env.production` file.
+
+   - Find GA Measurement ID from [GA's dashboard](https://analytics.google.com/analytics/web/?authuser=0)
+
+2. Then, run this script to build the app using production env and deploy to `master` branch
+
+```bash
 yarn deploy
 ```
 
