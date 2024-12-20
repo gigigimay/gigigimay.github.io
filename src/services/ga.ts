@@ -3,7 +3,7 @@ import { GA_MEASUREMENT_ID } from 'config/env'
 
 declare global {
   interface Window {
-    dataLayer: unknown[]
+    dataLayer?: unknown[]
   }
 }
 
@@ -21,7 +21,7 @@ const loadScriptToHead = (id: string, src: string) => {
 
 function gtag() {
   // eslint-disable-next-line prefer-rest-params
-  window.dataLayer.push(arguments)
+  window.dataLayer?.push(arguments)
 }
 
 export const initGA = async () => {
