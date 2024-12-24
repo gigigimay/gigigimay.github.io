@@ -1,5 +1,11 @@
 import classNames from 'classnames'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react'
 import styled from 'styled-components'
 import { randomInt } from 'utils/number'
 import { delay } from 'utils/timeout'
@@ -112,7 +118,7 @@ const CoverScreen = ({ onDone, initialClicked }: CoverScreenProps) => {
   const [isClicked, setIsClicked] = useState(false)
   const [step, setStep] = useState(0)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const rows = createArray(nY)
     const cols = createArray(nX)
     setRows(rows)

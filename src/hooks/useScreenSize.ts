@@ -21,7 +21,7 @@ const useScreenSize = (debounceTime = 100) => {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [debounceTime])
 
   return screenSize
 }

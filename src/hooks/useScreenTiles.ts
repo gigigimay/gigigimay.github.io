@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import useScreenSize from './useScreenSize'
 
 export const useScreenTiles = (tileSize: number, extraY = 0) => {
@@ -7,7 +7,7 @@ export const useScreenTiles = (tileSize: number, extraY = 0) => {
   const [nX, setNX] = useState<number>(Math.ceil(w / tileSize))
   const [nY, setNY] = useState<number>(Math.ceil(h / tileSize) + extraY)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const nnX = Math.ceil(w / tileSize)
     const nnY = Math.ceil(h / tileSize) + extraY
     setNX(nnX)
