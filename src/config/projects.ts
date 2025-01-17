@@ -56,6 +56,15 @@ export const projects: ProjectInfo[] = [
     ],
   },
   {
+    title: 'KanoonTH',
+    description:
+      'A landing page for KanoonTH, a Bangkok-based company specializing in developing digital products.',
+    year: 2021,
+    visitLink: 'https://kanoonth.com/',
+    isPublic: false,
+    techStacks: [techStacks.gatsby, techStacks.react, techStacks.javascript],
+  },
+  {
     title: 'Peerapat Residence',
     description:
       'A website for Peerapat Residence, a serviced apartment in Bangkok.',
